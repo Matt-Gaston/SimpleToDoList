@@ -10,9 +10,6 @@ from dbmodels import Base, User
 
 app = Flask(__name__)
 
-FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
-CORS(app, origins=[FRONTEND_URL, "http://71.86.158.1","http://192.168.1.100"])
-
 DB_USER = os.getenv("POSTGRES_USER")
 DB_PASS = os.getenv("POSTGRES_PASSWORD")
 DB_NAME = os.getenv("POSTGRES_DB")
