@@ -1,0 +1,19 @@
+# Override docker compose file for Prod
+# -- Prod compose file
+
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      target: prod
+
+  backend_users:
+    build:
+      context: ./backend_users
+      target: prod
+
+  backend_tasks:
+    build:
+      context: ./backend_tasks
+      target: prod

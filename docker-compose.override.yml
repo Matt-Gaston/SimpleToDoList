@@ -1,0 +1,32 @@
+# Override docker compose file for Dev
+# -- Dev compose file
+
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      target: dev
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    # No ports mapped → nginx proxies http://frontend:8080
+
+  backend_users:
+    build:
+      context: ./backend_users
+      target: dev
+    volumes:
+      - ./backend_users:/app
+    environment:
+      FLASK_ENV: development
+    # expose:5000 already in base
+
+  backend_tasks:
+    build:
+      context: ./backend_tasks
+      target: dev
+    volumes:
+      - ./backend_tasks:/app
+    environment:
+      FLASK_ENV: development
